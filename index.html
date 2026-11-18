@@ -1,0 +1,4049 @@
+<!DOCTYPE html>
+<html lang="en" class="lock">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Ragasri &amp; Vinay · Wedding</title>
+<meta name="description" content="Together with our families, we invite you to celebrate the wedding of Ragasri & Vinay." />
+
+<script>document.documentElement.classList.add('js');</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   1. DESIGN TOKENS
+   ============================================================ */
+:root{
+  --cream:      #f7f1e8;
+  --cream-deep: #f0e7d8;
+  --paper:      #fbf8f2;
+  --ink:        #2e2a26;
+  --ink-soft:   #5c5347;
+  --gold:       #b9924f;
+  --gold-soft:  #d8bc85;
+  --gold-line:  rgba(185, 146, 79, .28);
+
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-serif:   'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans:    'Jost', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --ease-out: cubic-bezier(.22,.78,.24,1);
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+
+html{
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+html.lock{ overflow: hidden; }
+
+body{
+  margin: 0;
+  min-height: 100%;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+body.intro-active{ overflow: hidden; }
+
+img, video{ display: block; max-width: 100%; }
+
+/* ============================================================
+   2. INTRO / VIDEO SECTION
+   ============================================================ */
+.intro{
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #080808;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    opacity 1.3s var(--ease-out),
+    transform 1.3s var(--ease-out),
+    filter 1.3s var(--ease-out),
+    visibility 0s linear 1.3s;
+  will-change: opacity, transform, filter;
+}
+
+.intro-video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.001);
+}
+
+.intro-overlay{
+  position: absolute;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: clamp(2.2rem, 9vh, 4.5rem);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .95rem;
+  text-align: center;
+  pointer-events: none;
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.intro-names{
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 6.4vw, 3.15rem);
+  line-height: 1.12;
+  letter-spacing: .045em;
+  color: #fff;
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.95),
+    0 2px 8px rgba(0,0,0,.85),
+    0 6px 26px rgba(0,0,0,.8),
+    0 12px 52px rgba(0,0,0,.6);
+}
+
+.intro-names .amp{
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: .8em;
+  color: var(--gold-soft);
+  margin: 0 .34em;
+  vertical-align: baseline;
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.95),
+    0 3px 18px rgba(0,0,0,.85),
+    0 8px 30px rgba(0,0,0,.7);
+}
+
+.intro-tap{
+  margin: 0;
+  padding-left: .42em;
+  font-family: var(--font-sans);
+  font-size: .62rem;
+  font-weight: 500;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.95),
+    0 3px 14px rgba(0,0,0,.85),
+    0 6px 28px rgba(0,0,0,.7);
+  animation: softPulse 2.6s ease-in-out infinite;
+}
+
+@keyframes softPulse{
+  0%, 100% { opacity: .55; }
+  50%      { opacity: 1; }
+}
+
+.intro-overlay.is-hidden{
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+body.intro-done .intro{
+  opacity: 0;
+  transform: scale(1.07);
+  filter: blur(7px);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ============================================================
+   3. SHARED REVEAL ANIMATION
+   ============================================================ */
+.js .reveal{
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 1.05s var(--ease-out),
+    transform 1.05s var(--ease-out);
+  transition-delay: var(--d, 0s);
+}
+
+.js .reveal.is-visible{
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================================================
+   4. HERO SECTION
+   ============================================================ */
+.hero{
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: block;
+  background: #080808;
+  overflow: hidden;
+}
+
+.hero-video{
+  display: block;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  object-fit: cover;
+  object-position: center;
+  background: #080808;
+}
+
+.music-toggle{
+  position:fixed;
+  right:max(1.1rem,env(safe-area-inset-right));
+  bottom:max(1.1rem,calc(env(safe-area-inset-bottom) + .9rem));
+  z-index:900;
+  width:50px;
+  height:50px;
+  display:grid;
+  place-items:center;
+  padding:0;
+  border:1px solid rgba(232,207,158,.72);
+  border-radius:50%;
+  background:linear-gradient(145deg,rgba(54,41,25,.88),rgba(22,17,12,.82));
+  -webkit-backdrop-filter:blur(12px);
+  backdrop-filter:blur(12px);
+  color:#fff7e8;
+  cursor:pointer;
+  box-shadow:
+    0 12px 32px -13px rgba(0,0,0,.62),
+    0 0 0 1px rgba(255,255,255,.08) inset,
+    0 1px 0 rgba(255,255,255,.2) inset;
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(10px) scale(.96);
+  transition:
+    opacity .45s var(--ease-out),
+    transform .35s var(--ease-out),
+    background .3s var(--ease-out),
+    color .3s var(--ease-out),
+    box-shadow .3s var(--ease-out);
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+
+body.intro-done .music-toggle{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0) scale(1);
+}
+
+.music-toggle:hover,
+.music-toggle:focus-visible{
+  background:linear-gradient(145deg,rgba(197,158,91,.98),rgba(151,111,52,.96));
+  color:#21180d;
+  transform:translateY(-2px) scale(1.04);
+  box-shadow:
+    0 14px 34px -13px rgba(0,0,0,.55),
+    0 0 0 1px rgba(255,255,255,.16) inset;
+}
+
+.music-toggle:active{
+  transform:scale(.94);
+}
+
+.music-toggle:focus-visible{
+  outline:2px solid var(--gold-soft);
+  outline-offset:4px;
+}
+
+.music-toggle svg{
+  width:21px;
+  height:21px;
+  display:block;
+  transition:opacity .2s var(--ease-out),transform .2s var(--ease-out);
+}
+
+.music-toggle .icon-off{display:none;}
+.music-toggle.is-muted .icon-on{display:none;}
+.music-toggle.is-muted .icon-off{display:block;}
+.music-toggle.is-muted{color:rgba(255,247,232,.72);}
+
+.music-toggle.is-playing::after{
+  content:'';
+  position:absolute;
+  inset:-4px;
+  border-radius:50%;
+  border:1px solid rgba(216,188,133,.62);
+  animation:musicRing 2.8s ease-out infinite;
+  pointer-events:none;
+}
+
+@keyframes musicRing{
+  0%{opacity:.55;transform:scale(.94);}
+  70%{opacity:0;transform:scale(1.28);}
+  100%{opacity:0;transform:scale(1.28);}
+}
+
+@media(max-width:420px){
+  .music-toggle{
+    width:44px;
+    height:44px;
+    right:.85rem;
+    bottom:calc(.85rem + env(safe-area-inset-bottom));
+  }
+
+  .music-toggle svg{
+    width:18px;
+    height:18px;
+  }
+}
+
+/* ============================================================
+   6. PARENTS SECTION  (background image: parentbg)
+   ============================================================ */
+.parents{
+  position: relative;
+  padding: clamp(4.5rem, 12vw, 9rem) 1.5rem clamp(5rem, 13vw, 10rem);
+  background:
+    url('Assets/parentbg.png') center/cover no-repeat;
+  overflow: hidden;
+}
+
+.parents::before{
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 220px;
+  background: radial-gradient(60% 100% at 50% 0%, rgba(216,188,133,.22), transparent 70%);
+  pointer-events: none;
+}
+
+.section-head{
+  position: relative;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto clamp(2.8rem, 7vw, 4.5rem);
+}
+
+.section-head h2{
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 6.5vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: .02em;
+  color: var(--ink);
+}
+
+.section-head .sub{
+  margin: 1.1rem auto 0;
+  max-width: 46ch;
+  font-family: var(--font-serif);
+  font-size: clamp(.98rem, 2.4vw, 1.12rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.eyebrow{
+  margin: 0 0 1.5rem;
+  font-family: var(--font-sans);
+  font-size: clamp(.58rem, 1.6vw, .68rem);
+  font-weight: 400;
+  letter-spacing: .48em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-left: .48em;
+}
+
+.parents-grid{
+  position: relative;
+  max-width: 1020px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: clamp(1.4rem, 4vw, 3rem);
+}
+
+.parent-card{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  transition: transform .55s var(--ease-out);
+}
+
+.parent-card:hover{
+  transform: translateY(-6px);
+}
+
+.parent-card > img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.card-content{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12% 10%;
+  text-align: center;
+  pointer-events: none;
+}
+
+.card-label{
+  margin: 0 0 1.35rem;
+  font-family: var(--font-sans);
+  font-size: .58rem;
+  font-weight: 500;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.card-names{
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+  line-height: 1.55;
+  color: var(--ink);
+  text-align: center;
+}
+
+.card-names .amp-sm{
+  display: block;
+  margin: .2em 0;
+  font-style: italic;
+  font-weight: 400;
+  font-size: .82em;
+  color: var(--gold-soft);
+}
+
+.card-note{
+  margin: 1.4rem 0 0;
+  font-family: var(--font-sans);
+  font-size: .58rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: .8;
+}
+
+.mid-amp{
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  line-height: 1;
+  color: var(--gold);
+  user-select: none;
+}
+
+/* ---- footer ---- */
+.site-foot{
+  padding: 2.6rem 1.5rem calc(2.6rem + env(safe-area-inset-bottom));
+  text-align: center;
+  background: var(--paper);
+  border-top: 1px solid rgba(185,146,79,.16);
+}
+
+.site-foot p{
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: .56rem;
+  letter-spacing: .4em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: .75;
+}
+
+/* ============================================================
+   7. WEDDING EVENTS TIMELINE  (background image: weddingeventsbg)
+   ============================================================ */
+.events{
+  position: relative;
+  padding: clamp(4.5rem, 12vw, 9rem) 1.25rem clamp(5rem, 13vw, 9rem);
+  background:
+    radial-gradient(70% 35% at 50% 0%, rgba(216,188,133,.14), transparent 75%),
+    linear-gradient(180deg, rgba(251,248,242,.85), rgba(251,248,242,.9)),
+    url('Assets/weddingeventsbg.png') center/cover no-repeat;
+  overflow: hidden;
+}
+
+.events::after{
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 180px;
+  background: linear-gradient(180deg, transparent, rgba(240,231,216,.28));
+  pointer-events: none;
+}
+
+.events-inner{
+  position: relative;
+  z-index: 1;
+  width: min(960px, 100%);
+  margin: 0 auto;
+}
+
+.events-timeline{
+  position: relative;
+  display: grid;
+  gap: clamp(2.6rem, 7vw, 4.8rem);
+  width: min(790px, 100%);
+  margin: 0 auto;
+  padding: .4rem 0;
+}
+
+.events-timeline::before{
+  content: '';
+  position: absolute;
+  top: 1.2rem;
+  bottom: 1.2rem;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, transparent, var(--gold-soft) 8%, var(--gold-soft) 92%, transparent);
+}
+
+.timeline-lotus{
+  position: absolute;
+  top: 1.2rem;
+  left: 50%;
+  z-index: 3;
+  width: 56px;
+  height: 56px;
+  margin-top: -28px;
+  padding: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%,
+              var(--paper) 0%,
+              var(--paper) 46%,
+              rgba(251, 248, 242, .55) 64%,
+              rgba(251, 248, 242, 0) 80%);
+  transform: translate(-50%, 0);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.timeline-lotus img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(185, 146, 79, .32));
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.event-row{
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 52px minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(.7rem, 2.5vw, 1.65rem);
+  min-width: 0;
+}
+
+.event-image{
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end;
+  width: min(100%, 285px);
+}
+
+.event-image img{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / .88;
+  object-fit: contain;
+  background: transparent;
+}
+
+.event-details{
+  grid-column: 3;
+  grid-row: 1;
+  min-width: 0;
+  text-align: left;
+  padding: .25rem 0;
+}
+
+.event-row.right-image .event-image{
+  grid-column: 3;
+  justify-self: start;
+}
+
+.event-row.right-image .event-details{
+  grid-column: 1;
+  text-align: right;
+}
+
+.event-marker{
+  grid-column: 2;
+  grid-row: 1;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  justify-self: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--gold-soft);
+  border-radius: 50%;
+  color: var(--gold);
+  background: var(--paper);
+  box-shadow: 0 0 0 7px var(--paper);
+  font-size: .8rem;
+}
+
+.event-time{
+  display: block;
+  margin: .75rem 0 0;
+  padding: 0;
+}
+
+.event-date{
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 3.9vw, 2.05rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: .015em;
+  color: var(--accent, var(--gold));
+}
+
+.event-clock{
+  display: block;
+  margin-top: .42rem;
+  font-family: var(--font-sans);
+  font-size: clamp(.58rem, 1.5vw, .68rem);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.event-row.haldi      { --accent: #87652e; }
+.event-row.sangeeth   { --accent: #8e4058; }
+.event-row.wedding    { --accent: #4f765f; }
+.event-row.reception  { --accent: #68577f; }
+
+.event-title{
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4.4vw, 2.55rem);
+  font-weight: 600;
+  line-height: 1.08;
+  color: var(--ink);
+}
+
+.event-venue{
+  margin: .85rem 0 0;
+  font-family: var(--font-sans);
+  font-size: .7rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.event-venue strong{
+  display: block;
+  margin-bottom: .15rem;
+  color: var(--gold);
+  font-size: .55rem;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.venue-btn{
+  display: inline-block;
+  margin-top: .9rem;
+  padding: .5rem 1.1rem;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: .55rem;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--gold);
+  background: transparent;
+  transition: background .3s var(--ease-out), color .3s var(--ease-out);
+}
+
+.venue-btn:hover,
+.venue-btn:focus-visible{
+  background: var(--gold);
+  color: #fff;
+}
+
+/* ============================================================
+   8. VENUE SECTION  (background image: venuebg)
+   ============================================================ */
+.venue{
+  position: relative;
+  padding: clamp(4.5rem, 12vw, 9rem) 1.25rem clamp(5rem, 13vw, 9rem);
+  background:
+    radial-gradient(60% 45% at 50% 0%, rgba(216,188,133,.18), transparent 70%),
+    linear-gradient(180deg, rgba(240,231,216,.78), rgba(240,231,216,.86)),
+    url('Assets/venuebg.png') center/cover no-repeat;
+  overflow: hidden;
+}
+
+.venue::after{
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 160px;
+  background: linear-gradient(180deg, transparent, rgba(247,241,232,.5));
+  pointer-events: none;
+}
+
+.venue-inner{
+  position: relative;
+  z-index: 1;
+  width: min(1020px, 100%);
+  margin: 0 auto;
+}
+
+.venues-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.4rem, 4vw, 2.4rem);
+  align-items: stretch;
+}
+
+.venue-card{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: clamp(1.6rem, 4.5vw, 2.6rem);
+  border: 1px solid var(--gold-line);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(233,190,201,.34), transparent 42%),
+    radial-gradient(circle at 100% 0%, rgba(196,216,236,.3), transparent 42%),
+    radial-gradient(circle at 0% 100%, rgba(216,188,133,.26), transparent 42%),
+    radial-gradient(circle at 100% 100%, rgba(200,184,231,.28), transparent 42%),
+    linear-gradient(180deg, #fffdf9, #f8f0e4);
+  box-shadow: 0 26px 60px -42px rgba(46,42,38,.55);
+  overflow: hidden;
+}
+
+.venue-note{
+  margin: 0 auto;
+  max-width: 34ch;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(.92rem, 2.3vw, 1.02rem);
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.venue-name{
+  margin: 1.15rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.55rem, 4.2vw, 2.2rem);
+  line-height: 1.18;
+  letter-spacing: .01em;
+  color: var(--ink);
+}
+
+.venue-address{
+  margin: .6rem auto 0;
+  max-width: 34ch;
+  font-family: var(--font-sans);
+  font-size: clamp(.6rem, 1.7vw, .68rem);
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.venue-events{
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  text-align: left;
+  border-top: 1px solid rgba(185,146,79,.28);
+  flex: 1;
+}
+
+.venue-events li{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .72rem .1rem;
+  border-bottom: 1px solid rgba(185,146,79,.18);
+}
+
+.venue-events .ve-name{
+  font-family: var(--font-sans);
+  font-size: clamp(.56rem, 1.6vw, .62rem);
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.venue-events .ve-time{
+  font-family: var(--font-sans);
+  font-size: clamp(.54rem, 1.5vw, .6rem);
+  font-weight: 400;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.map-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  margin-top: 1.6rem;
+  width: 100%;
+  padding: .9rem 1.2rem;
+  border: 0;
+  border-radius: 3px;
+  background: #9c2434;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: clamp(.54rem, 1.6vw, .6rem);
+  font-weight: 500;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .3s var(--ease-out), transform .3s var(--ease-out);
+}
+
+.map-btn svg{ flex: 0 0 auto; }
+
+.map-btn:hover,
+.map-btn:focus-visible{
+  background: #b32c3f;
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   9. CELEBRATION REELS
+   ============================================================ */
+.reels{
+  position: relative;
+  padding: clamp(4.5rem, 12vw, 9rem) 1.25rem clamp(5rem, 13vw, 9rem);
+  background:
+    radial-gradient(70% 40% at 50% 0%, rgba(216,188,133,.18), transparent 72%),
+    var(--cream);
+  overflow: hidden;
+}
+
+.reels::after{
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 170px;
+  background: linear-gradient(180deg, transparent, rgba(240,231,216,.5));
+  pointer-events: none;
+}
+
+.reels-inner{
+  position: relative;
+  z-index: 1;
+  width: min(880px, 100%);
+  margin: 0 auto;
+}
+
+.reels-list{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3.5vw, 2.2rem);
+  align-items: start;
+}
+
+/* --- smaller video card --- */
+.reel{
+  width: 100%;
+  max-width: 262px;
+  margin: 0 auto;
+}
+
+/* --- video details now BELOW the video --- */
+.reel-details{
+  margin-top: 1.05rem;
+  padding: 0 .25rem;
+  text-align: center;
+}
+
+.reel-title{
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 3.2vw, 1.55rem);
+  line-height: 1.05;
+  letter-spacing: .01em;
+  color: var(--ink);
+}
+
+.reel-meta{
+  margin: .4rem 0 0;
+  font-family: var(--font-sans);
+  font-size: .5rem;
+  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.reel-venue{
+  margin: .55rem 0 0;
+  font-family: var(--font-sans);
+  font-size: .58rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.reel-venue-btn{
+  display: inline-block;
+  margin-top: .7rem;
+  padding: .4rem .9rem .4rem 1rem;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: .48rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--gold);
+  background: transparent;
+  transition: background .3s var(--ease-out), color .3s var(--ease-out);
+}
+
+.reel-venue-btn:hover,
+.reel-venue-btn:focus-visible{
+  background: var(--gold);
+  color: #fff;
+}
+
+.scratch-card{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #0d0b09;
+  isolation: isolate;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow:
+    0 26px 60px -30px rgba(46,42,38,.75),
+    0 0 0 1px rgba(185,146,79,.35);
+}
+
+.scratch-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #0d0b09;
+}
+
+/* ---- Haldi scratch canvas ---- */
+.scratch-canvas{
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  touch-action: none;
+  cursor: crosshair;
+  opacity: 1;
+  transform: scale(1);
+  will-change: opacity, transform;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  transition:
+    opacity .95s var(--ease-out),
+    transform .95s var(--ease-out),
+    filter .95s var(--ease-out);
+}
+
+.scratch-canvas:focus-visible{
+  outline: 2px solid var(--gold-soft);
+  outline-offset: -6px;
+}
+
+.scratch-card.is-revealed .scratch-canvas{
+  opacity: 0;
+  transform: scale(1.04);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+/* ---- Sangeet dhol cover ---- */
+.tap-cover{
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 42%,
+      #fff5c4 0%,
+      #f7d868 34%,
+      #dca93c 68%,
+      #a97a2c 100%);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    opacity .9s var(--ease-out),
+    transform .9s var(--ease-out),
+    filter .9s var(--ease-out);
+  will-change: opacity, transform, filter;
+}
+
+.tap-cover:focus-visible{
+  outline: 2px solid var(--gold-soft);
+  outline-offset: -6px;
+}
+
+.tap-card.is-revealed .tap-cover{
+  opacity: 0;
+  transform: scale(1.12);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+.dhol-img{
+  width: 66%;
+  max-width: 240px;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+  transform-origin: 50% 50%;
+  filter: drop-shadow(0 14px 26px rgba(90, 60, 12, .38));
+}
+
+.dhol-img.is-struck{
+  animation: dholStrike .34s var(--ease-out);
+}
+
+@keyframes dholStrike{
+  0%   { transform: scale(1) rotate(0deg); }
+  35%  { transform: scale(1.09) rotate(-3.5deg); }
+  70%  { transform: scale(.97) rotate(2deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* ---- hint pill ---- */
+.scratch-hint{
+  position: absolute;
+  left: 50%;
+  bottom: clamp(.8rem, 4vw, 1.3rem);
+  transform: translateX(-50%);
+  z-index: 3;
+  margin: 0;
+  padding: .45rem .9rem .45rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 245, 220, .38);
+  background: rgba(24, 18, 10, .55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  font-family: var(--font-sans);
+  font-size: .5rem;
+  font-weight: 500;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: #fff6e3;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity .45s ease;
+}
+
+.scratch-hint span{
+  display: inline-block;
+  animation: softPulse 2.6s ease-in-out infinite;
+}
+
+.scratch-card.is-revealed .scratch-hint{
+  opacity: 0;
+}
+
+/* ---- replay pill ---- */
+.scratch-replay{
+  position: absolute;
+  right: clamp(.6rem, 2.4vw, .9rem);
+  bottom: clamp(.6rem, 2.4vw, .9rem);
+  z-index: 4;
+  padding: .45rem .9rem;
+  border: 1px solid rgba(255, 245, 220, .45);
+  border-radius: 999px;
+  background: rgba(24, 18, 10, .55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  font-family: var(--font-sans);
+  font-size: .48rem;
+  font-weight: 500;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: #fff6e3;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .4s ease, background .3s var(--ease-out);
+}
+
+.scratch-card.is-ended .scratch-replay{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scratch-replay:hover,
+.scratch-replay:focus-visible{
+  background: rgba(185, 146, 79, .78);
+}
+
+/* ============================================================
+   10. REALISTIC WATERCOLOR BUTTERFLY REVEAL
+   ============================================================ */
+
+.butterfly-cover{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:transparent;
+  cursor:pointer;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+  transition:opacity .58s var(--ease-out),
+             transform .58s var(--ease-out),
+             filter .58s var(--ease-out);
+  will-change:opacity,transform,filter;
+}
+
+.butterfly-cover:focus-visible{
+  outline:2px solid var(--gold-soft);
+  outline-offset:-6px;
+}
+
+/* Watercolor invitation paper with live erase mask */
+.butterfly-paper-svg{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  width:100%;
+  height:100%;
+  display:block;
+  pointer-events:none;
+}
+
+.butterfly-card.is-revealed .butterfly-cover{
+  opacity:0;
+  transform:scale(1.025);
+  filter:blur(4px);
+  pointer-events:none;
+}
+
+/* Main butterfly */
+.central-butterfly{
+  position:relative;
+  z-index:3;
+  display:block;
+  width:clamp(112px,43%,178px);
+  aspect-ratio:1;
+  user-select:none;
+  pointer-events:none;
+  filter:drop-shadow(0 9px 17px rgba(105,91,130,.18));
+  transform-origin:50% 50%;
+  animation:watercolorHover 3.1s ease-in-out infinite;
+  perspective:650px;
+}
+
+.central-butterfly svg{
+  display:block;
+  width:100%;
+  height:100%;
+  overflow:visible;
+}
+
+/* Individual wing flapping */
+.watercolor-butterfly-svg .wing{
+  transform-box:fill-box;
+  transform-style:preserve-3d;
+  animation:naturalWingBeat var(--flap-duration,.31s) ease-in-out infinite;
+  backface-visibility:hidden;
+}
+
+.watercolor-butterfly-svg .wing-left{
+  transform-origin:100% 52%;
+}
+
+.watercolor-butterfly-svg .wing-right{
+  transform-origin:0% 52%;
+  animation-delay:-.075s;
+}
+
+@keyframes naturalWingBeat{
+  0%{transform:scaleX(1) rotate(0deg)}
+  34%{transform:scaleX(.24) rotate(-5deg)}
+  60%{transform:scaleX(.48) rotate(3deg)}
+  100%{transform:scaleX(1) rotate(0deg)}
+}
+
+@keyframes watercolorHover{
+  0%,100%{transform:translateY(0) rotate(-2deg) scale(1)}
+  50%{transform:translateY(-7px) rotate(2deg) scale(1.035)}
+}
+
+/* Main butterfly flies away when clicked */
+.butterfly-card.is-fluttering .central-butterfly{
+  animation:butterflyLiftFade .48s var(--ease-out) forwards;
+}
+
+.butterfly-card.is-fluttering .central-butterfly .wing{
+  animation-play-state:paused;
+}
+
+@keyframes butterflyLiftFade{
+  0%{
+    opacity:1;
+    transform:scale(1) translateY(0) rotate(0);
+  }
+  45%{
+    opacity:1;
+    transform:scale(1.17) translateY(-12px) rotate(8deg);
+  }
+  100%{
+    opacity:0;
+    transform:scale(.48) translateY(-36px) rotate(-17deg);
+  }
+}
+
+/* Individual flying butterflies */
+.flying-butterfly{
+  position:absolute;
+  display:block;
+  z-index:5;
+  pointer-events:none;
+  opacity:0;
+  will-change:transform,opacity;
+  transform-origin:50% 50%;
+  perspective:650px;
+}
+
+.flying-butterfly svg{
+  display:block;
+  width:100%;
+  height:100%;
+  overflow:visible;
+  filter:drop-shadow(0 2px 4px rgba(112,102,147,.18));
+}
+
+.butterfly-cover .scratch-hint{
+  background:rgba(105,79,105,.43);
+  border-color:rgba(255,255,255,.58);
+}
+
+.butterfly-card.is-fluttering .scratch-hint{
+  opacity:0;
+}
+
+@media(max-width:560px){
+  .central-butterfly{
+    width:clamp(88px,38%,138px);
+  }
+}
+
+/* ============================================================
+   11. COUNTDOWN  (last, 2×2 grid)
+   ============================================================ */
+.countdown{
+  position: relative;
+  padding: clamp(4rem, 10vw, 7rem) 1.25rem;
+  background:
+    radial-gradient(70% 60% at 50% 0%, rgba(216,188,133,.24), transparent 70%),
+    var(--cream-deep);
+  text-align: center;
+  overflow: hidden;
+}
+
+.countdown::after{
+  content:'';
+  position:absolute;
+  inset:auto 0 0;
+  height:140px;
+  background:linear-gradient(180deg, transparent, rgba(247,241,232,.55));
+  pointer-events:none;
+}
+
+.countdown-inner{
+  position:relative;
+  z-index:1;
+  width:min(880px,100%);
+  margin:0 auto;
+}
+
+.countdown-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(.9rem, 2.5vw, 1.6rem);
+  max-width: 460px;
+  margin: clamp(1.6rem, 4vw, 2.6rem) auto 0;
+}
+
+.countdown-unit{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:clamp(.9rem, 2.8vw, 1.4rem) clamp(.5rem, 1.8vw, 1rem);
+  border:1px solid var(--gold-line);
+  border-radius:6px;
+  background:linear-gradient(180deg, rgba(255,253,248,.92), rgba(247,241,232,.6));
+  box-shadow:0 14px 30px -26px rgba(46,42,38,.5);
+}
+
+.countdown-num{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:clamp(1.7rem, 5.6vw, 3rem);
+  line-height:1;
+  color:var(--ink);
+  font-variant-numeric:tabular-nums;
+}
+
+.countdown-label{
+  margin-top:.55rem;
+  font-family:var(--font-sans);
+  font-size:.5rem;
+  font-weight:500;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--gold);
+  padding-left:.3em;
+}
+
+/* ============================================================
+   12. RESPONSIVE
+   ============================================================ */
+@media (max-width: 760px){
+  .parents-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .mid-amp{
+    padding: .2rem 0;
+  }
+
+  .card-label{
+    margin-bottom: 1rem;
+    font-size: .52rem;
+  }
+
+  .card-names{
+    font-size: clamp(1.05rem, 4vw, 1.3rem);
+  }
+
+  .card-note{
+    margin-top: 1rem;
+    font-size: .52rem;
+  }
+
+  .reels-list{
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+
+  .reel{
+    max-width: 300px;
+  }
+
+  .venues-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px){
+  .intro-overlay{
+    bottom: clamp(1.8rem, 7vh, 3rem);
+    gap: .8rem;
+  }
+
+  .scratch-card{
+    border-radius: 16px;
+  }
+
+  .reel{
+    max-width: 280px;
+  }
+
+  .reel-meta{
+    font-size: .48rem;
+    letter-spacing: .18em;
+  }
+
+  .scratch-hint{
+    font-size: .44rem;
+    letter-spacing: .18em;
+    padding: .4rem .75rem .4rem .95rem;
+  }
+
+  .scratch-replay{
+    font-size: .44rem;
+    padding: .4rem .75rem;
+  }
+
+  .dhol-img{
+    width: 62%;
+  }
+
+  .central-butterfly{
+    width: clamp(80px, 35%, 130px);
+  }
+
+  .flying-butterfly{
+    width: 22px;
+    height: 22px;
+  }
+
+  .countdown-label{
+    font-size: .44rem;
+    letter-spacing: .24em;
+  }
+
+  .venue-events li{
+    padding: .62rem .05rem;
+  }
+
+  .map-btn{
+    padding: .8rem 1rem;
+    letter-spacing: .18em;
+  }
+}
+
+/* ---- event timeline responsive layout ---- */
+@media (max-width: 760px){
+  .events-timeline{
+    gap: 2.7rem;
+  }
+
+  .timeline-lotus{
+    width: 46px;
+    height: 46px;
+    margin-top: -23px;
+    padding: 7px;
+  }
+
+  .event-row{
+    grid-template-columns: minmax(0,1fr) 34px minmax(0,1fr);
+    gap: .65rem;
+  }
+
+  .event-image{
+    width: 100%;
+  }
+
+  .event-image img{
+    aspect-ratio: .92 / 1;
+  }
+
+  .event-marker{
+    width: 30px;
+    height: 30px;
+    font-size: .68rem;
+  }
+
+  .event-title{
+    font-size: clamp(1.45rem, 5vw, 1.9rem);
+  }
+
+  .event-time{
+    margin-top: .55rem;
+  }
+
+  .event-date{
+    font-size: clamp(1.2rem, 4.8vw, 1.5rem);
+  }
+
+  .event-clock{
+    margin-top: .35rem;
+    font-size: .52rem;
+    letter-spacing: .16em;
+  }
+
+  .event-venue{
+    margin-top: .65rem;
+    font-size: .62rem;
+  }
+
+  .event-venue strong{
+    font-size: .49rem;
+  }
+
+  .venue-btn{
+    margin-top: .7rem;
+    padding: .4rem .85rem;
+    font-size: .48rem;
+    letter-spacing: .15em;
+  }
+}
+
+@media (max-width: 380px){
+  .events{
+    padding-right: .85rem;
+    padding-left: .85rem;
+  }
+
+  .events-timeline{
+    gap: 2.2rem;
+  }
+
+  .timeline-lotus{
+    width: 38px;
+    height: 38px;
+    margin-top: -19px;
+    padding: 6px;
+  }
+
+  .event-row{
+    grid-template-columns: minmax(0,1fr) 25px minmax(0,1fr);
+    gap: .42rem;
+  }
+
+  .event-marker{
+    width: 24px;
+    height: 24px;
+    font-size: .58rem;
+    box-shadow: 0 0 0 5px var(--paper);
+  }
+
+  .event-title{
+    font-size: 1.35rem;
+  }
+
+  .event-date{
+    font-size: 1.1rem;
+  }
+
+  .event-clock{
+    font-size: .46rem;
+    letter-spacing: .1em;
+  }
+
+  .event-venue{
+    font-size: .57rem;
+  }
+
+  .venue-btn{
+    margin-top: .6rem;
+    padding: .35rem .7rem;
+    font-size: .44rem;
+  }
+
+  .card-content{
+    padding: 10% 8%;
+  }
+
+  .card-label{
+    font-size: .45rem;
+    letter-spacing: .2em;
+  }
+
+  .card-names{
+    font-size: .95rem;
+    line-height: 1.35;
+  }
+
+  .card-note{
+    font-size: .45rem;
+    letter-spacing: .2em;
+  }
+
+  .reel{
+    max-width: 250px;
+  }
+
+  .countdown-unit{
+    min-width: 58px;
+  }
+
+  .venue-card{
+    padding: 1.25rem 1.05rem;
+  }
+}
+
+/* ============================================================
+   13. REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  html{
+    scroll-behavior: auto;
+  }
+
+  .js .reveal{
+    transform: none;
+    transition-duration: .01ms;
+  }
+
+  .intro-tap{
+    animation: none;
+  }
+
+  .scratch-hint span{
+    animation: none;
+  }
+
+  .music-toggle:not(.is-muted)::after{
+    animation: none;
+    opacity: 0;
+  }
+
+  .intro{
+    transition-duration: .4s;
+  }
+
+  body.intro-done .intro{
+    transform: none;
+    filter: none;
+  }
+
+  .timeline-lotus{
+    transition: none;
+  }
+
+  .scratch-canvas{
+    transition-duration: .3s;
+  }
+
+  .tap-cover{
+    transition-duration: .35s;
+  }
+
+  .dhol-img.is-struck{
+    animation: none;
+  }
+
+  .central-butterfly{
+    animation: none;
+  }
+
+  .flying-butterfly{
+    animation-duration: .28s;
+    animation-delay: 0s !important;
+  }
+
+  .butterfly-cover{
+    transition-duration: .35s;
+  }
+}
+
+
+/* ============================================================
+   GLOBAL FIX — REMOVE BLUE HIGHLIGHT FROM ENTIRE WEBSITE
+   ============================================================ */
+
+/* Remove blue tap highlight on all devices */
+*,
+*::before,
+*::after {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-focus-ring-color: transparent !important;
+}
+
+/* Remove default browser focus outline */
+*:focus {
+    outline: none;
+}
+
+/* Use a subtle wedding-gold focus indicator for keyboard users */
+*:focus-visible {
+    outline: 2px solid var(--gold-soft);
+    outline-offset: 3px;
+}
+
+/* Replace default blue text selection with a soft gold tint */
+::selection {
+    background: rgba(185, 146, 79, 0.25);
+    color: inherit;
+}
+
+::-moz-selection {
+    background: rgba(185, 146, 79, 0.25);
+    color: inherit;
+}
+
+</style>
+</head>
+
+<body class="intro-active">
+
+<!-- Background music (add your track at Assets/music.mp3) -->
+<audio id="bgMusic" loop preload="auto" playsinline>
+    <source src="audio/music1.mpeg" type="audio/mpeg">
+</audio>
+
+<!-- ============================================================
+     INTRO
+     ============================================================ -->
+<section class="intro" id="intro" aria-label="Wedding intro video">
+
+  <video
+    id="introVideo"
+    class="intro-video"
+    src="Assets/introvd.mp4"
+    preload="auto"
+    playsinline
+    webkit-playsinline
+    muted
+    disablepictureinpicture
+    aria-hidden="true"></video>
+
+  <div class="intro-overlay" id="introOverlay" aria-hidden="true">
+    <p class="intro-names">Ragasri<span class="amp">&amp;</span>Vinay</p>
+    <p class="intro-tap">Tap to open</p>
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     MUSIC TOGGLE (floating, appears after intro)
+     ============================================================ -->
+<button class="music-toggle is-muted"
+        id="musicToggle"
+        type="button"
+        aria-label="Play background music"
+        aria-pressed="false"
+        title="Play wedding music">
+
+  <svg class="icon-on" viewBox="0 0 24 24"
+       fill="none" stroke="currentColor"
+       stroke-width="2" stroke-linecap="round"
+       stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18V5l12-2v13"/>
+    <circle cx="6" cy="18" r="3"/>
+    <circle cx="18" cy="16" r="3"/>
+  </svg>
+
+  <svg class="icon-off" viewBox="0 0 24 24"
+       fill="none" stroke="currentColor"
+       stroke-width="2" stroke-linecap="round"
+       stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18V5l12-2v13"/>
+    <circle cx="6" cy="18" r="3"/>
+    <circle cx="18" cy="16" r="3"/>
+    <line x1="3" y1="3" x2="21" y2="21"/>
+  </svg>
+
+</button>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero" id="hero">
+
+  <video
+    id="heroVideo"
+    class="hero-video"
+    src="Assets/herovd.mp4"
+    preload="auto"
+    playsinline
+    webkit-playsinline
+    muted
+    disablepictureinpicture
+    aria-label="Ragasri and Vinay wedding video"></video>
+
+</header>
+
+
+<!-- ============================================================
+     PARENTS
+     ============================================================ -->
+<section class="parents" id="parents">
+
+  <div class="section-head">
+    <p class="eyebrow reveal">With the blessings of</p>
+    <h2 class="reveal" style="--d:.1s">Our Parents</h2>
+    <p class="sub reveal" style="--d:.2s">
+      Two families, one celebration — we are honoured to walk into
+      forever hand in hand, surrounded by the love that raised us.
+    </p>
+  </div>
+
+  <div class="parents-grid">
+
+    <div class="parent-card reveal" style="--d:.3s">
+      <img src="Assets/card.png" alt="Decorative card background">
+      <div class="card-content">
+        <p class="card-label">Parents of the Groom</p>
+        <h3 class="card-names">
+          Jallipalli Srinivasa Rao
+          <span class="amp-sm">&amp;</span>
+          Smt Usharani
+        </h3>
+        <p class="card-note">Vinay&rsquo;s Family</p>
+      </div>
+    </div>
+
+    <div class="mid-amp reveal" style="--d:.4s" aria-hidden="true">&amp;</div>
+
+    <div class="parent-card reveal" style="--d:.5s">
+      <img src="Assets/card.png" alt="Decorative card background">
+      <div class="card-content">
+        <p class="card-label">Parents of the Bride</p>
+        <h3 class="card-names">
+          Konakalla Ramalingeswar Rao
+          <span class="amp-sm">&amp;</span>
+          Saraswathi Devi
+        </h3>
+        <p class="card-note">Ragasri&rsquo;s Family</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WEDDING EVENTS
+     ============================================================ -->
+<section class="events" id="events">
+  <div class="events-inner">
+
+    <div class="section-head">
+      <p class="eyebrow reveal">Four moments, one beautiful celebration</p>
+      <h2 class="reveal" style="--d:.1s">Wedding Events</h2>
+      <p class="sub reveal" style="--d:.2s">
+        From joyful traditions to the moment we say forever, celebrate every special moment with us.
+      </p>
+    </div>
+
+    <div class="events-timeline">
+
+      <span class="timeline-lotus" id="timelineLotus" aria-hidden="true">
+        <img src="Assets/lotus.png" alt="" draggable="false">
+      </span>
+
+      <!-- 1. Haldi -->
+      <article class="event-row haldi reveal" style="--d:.1s">
+        <div class="event-image">
+          <img src="Assets/haldiicon.png" alt="Haldi ceremony" loading="lazy">
+        </div>
+
+        <span class="event-marker" aria-hidden="true">✿</span>
+
+        <div class="event-details">
+          <h3 class="event-title">Haldi</h3>
+
+          <p class="event-time">
+            <span class="event-date">2nd December</span>
+            <span class="event-clock">8:00 AM onwards</span>
+          </p>
+
+          <p class="event-venue">
+            <strong>Venue</strong>
+            R.R. Gardens, Maruthi Nagar, Chintalapudi
+          </p>
+          <a class="venue-btn" href="https://www.google.com/maps/search/?api=1&query=R.R.+Gardens,+Maruthi+Nagar,+Chintalapudi" target="_blank" rel="noopener">View Venue</a>
+        </div>
+      </article>
+
+      <!-- 2. Sangeet -->
+      <article class="event-row sangeeth right-image reveal" style="--d:.15s">
+        <div class="event-image">
+          <img src="Assets/sangeethicon.png" alt="Sangeet celebration" loading="lazy">
+        </div>
+
+        <span class="event-marker" aria-hidden="true">✿</span>
+
+        <div class="event-details">
+          <h3 class="event-title">Sangeet</h3>
+
+          <p class="event-time">
+            <span class="event-date">2nd December</span>
+            <span class="event-clock">6:00 PM onwards</span>
+          </p>
+
+          <p class="event-venue">
+            <strong>Venue</strong>
+            R.R. Gardens, Maruthi Nagar, Chintalapudi
+          </p>
+          <a class="venue-btn" href="https://www.google.com/maps/search/?api=1&query=R.R.+Gardens,+Maruthi+Nagar,+Chintalapudi" target="_blank" rel="noopener">View Venue</a>
+        </div>
+      </article>
+
+      <!-- 3. Wedding -->
+      <article class="event-row wedding reveal" style="--d:.2s">
+        <div class="event-image">
+          <img src="Assets/weddingicon.png" alt="Wedding ceremony" loading="lazy">
+        </div>
+
+        <span class="event-marker" aria-hidden="true">✿</span>
+
+        <div class="event-details">
+          <h3 class="event-title">Wedding</h3>
+
+          <p class="event-time">
+            <span class="event-date">3rd December 2026</span>
+            <span class="event-clock">Thursday · Muhurtham 9:06 PM</span>
+          </p>
+
+          <p class="event-venue">
+            <strong>Venue</strong>
+            Alapati Ganga Bhavani Function Hall, Aswarapet Road, Jangareddygudem
+          </p>
+          <a class="venue-btn" href="https://www.google.com/maps/search/?api=1&query=Alapati+Ganga+Bhavani+Function+Hall,+Aswarapet+Road,+Jangareddygudem" target="_blank" rel="noopener">View Venue</a>
+        </div>
+      </article>
+
+      <!-- 4. Reception -->
+      <article class="event-row reception right-image reveal" style="--d:.25s">
+        <div class="event-image">
+          <img src="Assets/receptionicon.png" alt="Wedding reception" loading="lazy">
+        </div>
+
+        <span class="event-marker" aria-hidden="true">✿</span>
+
+        <div class="event-details">
+          <h3 class="event-title">Reception</h3>
+
+          <p class="event-time">
+            <span class="event-date">5th December 2026</span>
+            <span class="event-clock">Saturday · 7:00 PM onwards</span>
+          </p>
+
+          <p class="event-venue">
+            <strong>Venue</strong>
+            R.R. Gardens, Maruthi Nagar, Chintalapudi
+          </p>
+          <a class="venue-btn" href="https://www.google.com/maps/search/?api=1&query=R.R.+Gardens,+Maruthi+Nagar,+Chintalapudi" target="_blank" rel="noopener">View Venue</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     VENUE
+     ============================================================ -->
+<section class="venue" id="venue">
+  <div class="venue-inner">
+
+    <div class="section-head">
+      <p class="eyebrow reveal">Find your way</p>
+      <h2 class="reveal" style="--d:.1s">The Venue</h2>
+      <p class="sub reveal" style="--d:.2s">
+        Every ceremony awaits you at these beautiful locations —
+        open the map and let the celebrations begin.
+      </p>
+    </div>
+
+    <div class="venues-grid">
+
+      <!-- Venue 1 -->
+      <article class="venue-card reveal" style="--d:.1s">
+        <p class="venue-note">
+          Haldi, Sangeet and Reception are all held here,
+          so you only need to find it once.
+        </p>
+
+        <h3 class="venue-name">R.R. Gardens</h3>
+        <p class="venue-address">Maruthi Nagar, Chintalapudi</p>
+
+        <ul class="venue-events">
+          <li>
+            <span class="ve-name">Haldi</span>
+            <span class="ve-time">2nd Dec · 8:00 AM</span>
+          </li>
+          <li>
+            <span class="ve-name">Sangeet</span>
+            <span class="ve-time">2nd Dec · 6:00 PM</span>
+          </li>
+          <li>
+            <span class="ve-name">Reception</span>
+            <span class="ve-time">5th Dec · 7:00 PM</span>
+          </li>
+        </ul>
+
+        <a class="map-btn"
+           href="https://www.google.com/maps/search/?api=1&query=R.R.+Gardens,+Maruthi+Nagar,+Chintalapudi"
+           target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          Open in Google Maps
+        </a>
+      </article>
+
+      <!-- Venue 2 -->
+      <article class="venue-card reveal" style="--d:.2s">
+        <p class="venue-note">
+          The wedding ceremony takes place here —
+          join us as we say forever.
+        </p>
+
+        <h3 class="venue-name">Alapati Ganga Bhavani Function Hall</h3>
+        <p class="venue-address">Aswarapet Road, Jangareddygudem</p>
+
+        <ul class="venue-events">
+          <li>
+            <span class="ve-name">Wedding</span>
+            <span class="ve-time">3rd Dec 2026 · 9:06 PM</span>
+          </li>
+        </ul>
+
+        <a class="map-btn"
+           href="https://www.google.com/maps/search/?api=1&query=Alapati+Ganga+Bhavani+Function+Hall,+Aswarapet+Road,+Jangareddygudem"
+           target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          Open in Google Maps
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CELEBRATION REELS
+     ============================================================ -->
+<section class="reels" id="reels">
+  <div class="reels-inner">
+
+    <div class="section-head">
+      <p class="eyebrow reveal">Unlock the celebration</p>
+      <h2 class="reveal" style="--d:.1s">Celebration Reels</h2>
+      <p class="sub reveal" style="--d:.2s">
+        Scratch the glitter, strike the dhol, or release a flutter of watercolor butterflies to uncover each celebration film.
+      </p>
+    </div>
+
+    <div class="reels-list">
+
+      <!-- HALDI -->
+      <article class="reel reveal" style="--d:.1s">
+        <div class="scratch-card" data-glitter="yellow">
+          <video
+            class="scratch-video"
+            src="Assets/haldivd.mp4"
+            preload="metadata"
+            playsinline
+            webkit-playsinline
+            disablepictureinpicture
+            aria-label="Haldi celebration video"></video>
+
+          <canvas
+            class="scratch-canvas"
+            role="button"
+            tabindex="0"
+            aria-label="Scratch to play the Haldi video"></canvas>
+
+          <p class="scratch-hint"><span>Scratch to play</span></p>
+          <button class="scratch-replay" type="button">Replay</button>
+        </div>
+
+        <div class="reel-details">
+          <h3 class="reel-title">Haldi</h3>
+          <p class="reel-meta">2nd December · 8:00 AM</p>
+          <p class="reel-venue">R.R. Gardens, Maruthi Nagar, Chintalapudi</p>
+          <a class="reel-venue-btn"
+             href="https://www.google.com/maps/search/?api=1&query=R.R.+Gardens,+Maruthi+Nagar,+Chintalapudi"
+             target="_blank" rel="noopener">View Venue</a>
+        </div>
+      </article>
+
+      <!-- SANGEET -->
+      <article class="reel reveal" style="--d:.15s">
+        <div class="scratch-card tap-card" data-tap="3">
+          <video
+            class="scratch-video"
+            src="Assets/sangeethvd.mp4"
+            preload="metadata"
+            playsinline
+            webkit-playsinline
+            disablepictureinpicture
+            aria-label="Sangeet celebration video"></video>
+
+          <div class="tap-cover"
+               role="button"
+               tabindex="0"
+               aria-label="Tap the dhol 3 times to play the Sangeet video">
+            <img src="Assets/dhol.png" alt="" class="dhol-img" draggable="false">
+          </div>
+
+          <p class="scratch-hint"><span>Tap the dhol 3 times</span></p>
+          <button class="scratch-replay" type="button">Replay</button>
+        </div>
+
+        <div class="reel-details">
+          <h3 class="reel-title">Sangeet</h3>
+          <p class="reel-meta">2nd December · 6:00 PM</p>
+          <p class="reel-venue">R.R. Gardens, Maruthi Nagar, Chintalapudi</p>
+          <a class="reel-venue-btn"
+             href="https://www.google.com/maps/search/?api=1&query=R.R.+Gardens,+Maruthi+Nagar,+Chintalapudi"
+             target="_blank" rel="noopener">View Venue</a>
+        </div>
+      </article>
+
+      <!-- RECEPTION -->
+      <article class="reel reveal" style="--d:.2s">
+        <div class="scratch-card butterfly-card" data-butterfly="true">
+          <video
+            class="scratch-video"
+            src="Assets/receptionvd.mp4"
+            preload="metadata"
+            playsinline
+            webkit-playsinline
+            disablepictureinpicture
+            aria-label="Reception celebration video"></video>
+
+          <div class="butterfly-cover"
+               role="button"
+               tabindex="0"
+               aria-label="Tap the watercolor butterfly to clear the invitation and play the Reception video">
+
+            <!-- The watercolor butterfly is inserted by JavaScript -->
+            <span class="central-butterfly" aria-hidden="true"></span>
+
+          </div>
+
+          <p class="scratch-hint"><span>Tap the butterfly to reveal</span></p>
+          <button class="scratch-replay" type="button">Replay</button>
+        </div>
+
+        <div class="reel-details">
+          <h3 class="reel-title">Reception</h3>
+          <p class="reel-meta">5th December · 7:00 PM</p>
+          <p class="reel-venue">R.R. Gardens, Maruthi Nagar, Chintalapudi</p>
+          <a class="reel-venue-btn"
+             href="https://www.google.com/maps/search/?api=1&query=R.R.+Gardens,+Maruthi+Nagar,+Chintalapudi"
+             target="_blank" rel="noopener">View Venue</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     COUNTDOWN
+     ============================================================ -->
+<section class="countdown" id="countdown" aria-label="Countdown to the wedding">
+  <div class="countdown-inner">
+
+    <div class="section-head">
+      <p class="eyebrow reveal">Save the date</p>
+      <h2 class="reveal" style="--d:.1s">Counting Down to Forever</h2>
+      <p class="sub reveal" style="--d:.2s">3rd December 2026 · Muhurtham 9:06 PM</p>
+    </div>
+
+    <div class="countdown-grid reveal" style="--d:.3s">
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cdDays">00</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cdHours">00</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cdMins">00</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cdSecs">00</span>
+        <span class="countdown-label">Seconds</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<footer class="site-foot">
+  <p>Ragasri &amp; Vinay &nbsp;·&nbsp; #RagasriWedsVinay</p>
+</footer>
+
+
+<script>
+/* ============================================================
+   MAIN WEBSITE SCRIPT
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var html         = document.documentElement;
+  var intro        = document.getElementById('intro');
+  var video        = document.getElementById('introVideo');
+  var introOverlay = document.getElementById('introOverlay');
+  var heroVideo    = document.getElementById('heroVideo');
+  var bgMusic      = document.getElementById('bgMusic');
+  var musicToggle  = document.getElementById('musicToggle');
+
+  var started      = false;
+  var finished     = false;
+  var heroStarted  = false;
+
+  /* ============================================================
+     BACKGROUND MUSIC
+     ============================================================ */
+  var musicEnabled  = true;   /* user's intent: music should be ON */
+  var musicBlocked  = false;  /* set when browser prevents autoplay */
+
+  function updateMusicUI() {
+    if (!musicToggle) return;
+    var playing = bgMusic && !bgMusic.paused && musicEnabled;
+    musicToggle.classList.toggle('is-muted', !playing);
+    musicToggle.setAttribute('aria-pressed', playing ? 'true' : 'false');
+  }
+
+  function startMusic() {
+    if (!bgMusic || !musicEnabled) return;
+
+    try {
+      bgMusic.volume = 0.4;
+    } catch (e) {}
+
+    var p;
+    try {
+      p = bgMusic.play();
+    } catch (e) {
+      musicBlocked = true;
+      updateMusicUI();
+      return;
+    }
+
+    if (p && typeof p.then === 'function') {
+      p.then(function () {
+        musicBlocked = false;
+        updateMusicUI();
+      }).catch(function () {
+        musicBlocked = true;
+        updateMusicUI();
+      });
+    } else {
+      updateMusicUI();
+    }
+  }
+
+  function toggleMusic() {
+    if (!bgMusic) return;
+
+    if (!bgMusic.paused) {
+      /* currently playing -> turn off */
+      musicEnabled = false;
+      try { bgMusic.pause(); } catch (e) {}
+      updateMusicUI();
+    } else {
+      /* currently paused -> turn on */
+      musicEnabled = true;
+      startMusic();
+    }
+  }
+
+  if (musicToggle) {
+    musicToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      toggleMusic();
+    });
+
+    musicToggle.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        toggleMusic();
+      }
+    });
+  }
+
+  if (bgMusic) {
+    bgMusic.addEventListener('play',  updateMusicUI);
+    bgMusic.addEventListener('pause', updateMusicUI);
+    bgMusic.addEventListener('ended', updateMusicUI);
+  }
+
+  /* Retry music on first click if the browser blocked the initial autoplay */
+  document.addEventListener('click', function retryMusicOnGesture (e) {
+    if (!musicBlocked || !musicEnabled) return;
+    if (e.target && e.target.closest && e.target.closest('#musicToggle')) return;
+    startMusic();
+  });
+
+  /* Initial UI state (music is not yet playing - shows ON until proven otherwise) */
+  updateMusicUI();
+
+
+  /* ============================================================
+     INTRO / HERO
+     ============================================================ */
+  function showFirstFrame() {
+    if (!video.duration || video.currentTime > 0.05) return;
+    try { video.currentTime = 0.001; } catch (e) {}
+  }
+
+  video.addEventListener('loadeddata', showFirstFrame, { once: true });
+  video.addEventListener('loadedmetadata', showFirstFrame, { once: true });
+
+  function startVideo() {
+    if (started || finished) return;
+    started = true;
+
+    if (introOverlay) introOverlay.classList.add('is-hidden');
+
+    video.muted = false;
+    video.volume = 1;
+
+    var p = video.play();
+
+    if (p && typeof p.catch === 'function') {
+      p.catch(function () {
+        video.muted = true;
+
+        var retry = video.play();
+
+        if (retry && typeof retry.catch === 'function') {
+          retry.catch(finish);
+        }
+      });
+    }
+  }
+
+  intro.addEventListener('click', startVideo);
+
+  function startHeroVideo() {
+    if (!heroVideo || heroStarted) return;
+    heroStarted = true;
+
+    heroVideo.muted = false;
+    heroVideo.volume = 1;
+
+    var p = heroVideo.play();
+
+    if (p && typeof p.catch === 'function') {
+      p.catch(function () {
+        heroVideo.muted = true;
+
+        var retry = heroVideo.play();
+
+        if (retry && typeof retry.catch === 'function') {
+          retry.catch(function () {});
+        }
+      });
+    }
+  }
+
+  function finish() {
+    if (finished) return;
+    finished = true;
+
+    html.classList.remove('lock');
+    document.body.classList.remove('intro-active');
+    document.body.classList.add('intro-done');
+
+    startHeroVideo();
+
+    /* Auto-start background music once the hero section is shown */
+    startMusic();
+
+    window.setTimeout(function () {
+      intro.style.display = 'none';
+
+      try {
+        video.pause();
+      } catch (e) {}
+    }, 1500);
+  }
+
+  video.addEventListener('ended', finish, { once: true });
+  video.addEventListener('error', finish);
+
+  /* ============================================================
+     REVEAL ON SCROLL
+     ============================================================ */
+  var revealEls = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -6% 0px'
+    });
+
+    revealEls.forEach(function (el) {
+      io.observe(el);
+    });
+
+  } else {
+    revealEls.forEach(function (el) {
+      el.classList.add('is-visible');
+    });
+  }
+
+  window.setTimeout(function () {
+    revealEls.forEach(function (el) {
+      if (el.classList.contains('is-visible')) return;
+      var r = el.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      if (r.top < vh && r.bottom > 0) {
+        el.classList.add('is-visible');
+      }
+    });
+  }, 1400);
+
+  /* Moving lotus on wedding timeline */
+  (function timelineLotus () {
+    var timeline = document.querySelector('.events-timeline');
+    var lotus    = document.getElementById('timelineLotus');
+
+    if (!timeline || !lotus) return;
+
+    var inset = 19.2;
+    var track = 0;
+    var frame = null;
+
+    function measure () {
+      var rootPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+      inset = rootPx * 1.2;
+      track = Math.max(0, timeline.offsetHeight - inset * 2);
+    }
+
+    function paint () {
+      frame = null;
+
+      var rect   = timeline.getBoundingClientRect();
+      var vh     = window.innerHeight || document.documentElement.clientHeight;
+      var anchor = vh * 0.5;
+
+      var progress = track ? (anchor - rect.top - inset) / track : 0;
+      progress = progress < 0 ? 0 : (progress > 1 ? 1 : progress);
+
+      lotus.style.transform =
+        'translate(-50%, ' + (progress * track).toFixed(2) + 'px)';
+    }
+
+    function request () {
+      if (frame === null) frame = window.requestAnimationFrame(paint);
+    }
+
+    function refresh () {
+      measure();
+      request();
+    }
+
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', refresh);
+    window.addEventListener('orientationchange', refresh);
+    window.addEventListener('load', refresh);
+
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(refresh).observe(timeline);
+    }
+
+    refresh();
+  })();
+
+  window.setTimeout(function () {
+    if (!started && video.readyState === 0) {
+      finish();
+    }
+  }, 6000);
+
+})();
+
+
+/* ============================================================
+   CELEBRATION REELS
+   1. Haldi     — scratch to reveal
+   2. Sangeet   — tap dhol 3 times
+   3. Reception — watercolor butterfly sweep
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var allVideos = [];
+  var REVEAL_AT = 0.45;
+
+  var scratchCards = Array.prototype.slice.call(
+    document.querySelectorAll('.scratch-card:not(.tap-card):not(.butterfly-card)')
+  );
+
+  var tapCards = Array.prototype.slice.call(
+    document.querySelectorAll('.tap-card')
+  );
+
+  var butterflyCards = Array.prototype.slice.call(
+    document.querySelectorAll('.butterfly-card')
+  );
+
+  if (!scratchCards.length && !tapCards.length && !butterflyCards.length) return;
+
+  /* ============================================================
+     GLITTER PALETTES
+     ============================================================ */
+  var PALETTES = {
+    gold: {
+      base:    ['#d9b76c', '#b98f45', '#efdba6', '#c49a4e', '#e6c883'],
+      bloom:   'rgba(255, 250, 226, ',
+      dust:    ['rgba(255, 255, 255, ', 'rgba(255, 238, 186, '],
+      starMid: 'rgba(255, 244, 205, ',
+      starOut: 'rgba(255, 226, 150, 0)'
+    },
+
+    yellow: {
+      base:    ['#f9dc4a', '#eec51c', '#fff19a', '#f0c623', '#ffe066'],
+      bloom:   'rgba(255, 252, 190, ',
+      dust:    ['rgba(255, 255, 255, ', 'rgba(255, 240, 110, '],
+      starMid: 'rgba(255, 250, 160, ',
+      starOut: 'rgba(255, 226, 60, 0)'
+    }
+  };
+
+  /* ============================================================
+     PLAY VIDEO EXCLUSIVELY
+     ============================================================ */
+  function playExclusive(video) {
+    allVideos.forEach(function (v) {
+      if (v !== video) {
+        try { v.pause(); } catch (e) {}
+      }
+    });
+
+    video.muted = false;
+    video.volume = 1;
+
+    var p = video.play();
+
+    if (p && typeof p.catch === 'function') {
+      p.catch(function () {
+        video.muted = true;
+
+        var retry = video.play();
+
+        if (retry && typeof retry.catch === 'function') {
+          retry.catch(function () {});
+        }
+      });
+    }
+  }
+
+  scratchCards.forEach(setupScratch);
+  tapCards.forEach(setupTap);
+  butterflyCards.forEach(setupButterfly);
+
+
+  /* =========================================================
+     SCRATCH CARD — HALDI
+     ========================================================= */
+  function setupScratch(card) {
+    var video  = card.querySelector('.scratch-video');
+    var canvas = card.querySelector('.scratch-canvas');
+    var hint   = card.querySelector('.scratch-hint');
+    var replay = card.querySelector('.scratch-replay');
+
+    if (!video || !canvas || !canvas.getContext) return;
+
+    allVideos.push(video);
+
+    var ctx = canvas.getContext('2d');
+
+    var tracker = document.createElement('canvas');
+    var tctx = tracker.getContext('2d');
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    var W = 0, H = 0;
+    var TW = 80, TH = 45;
+    var brush = 40;
+
+    var drawing  = false;
+    var revealed = false;
+    var unlocked = false;
+    var lastX = 0, lastY = 0;
+    var lastCheck = 0;
+
+    function palette() {
+      var key = card.getAttribute('data-glitter') || 'gold';
+      return PALETTES[key] || PALETTES.gold;
+    }
+
+    function drawStar(x, y, r, a, pal) {
+      ctx.save();
+      ctx.globalCompositeOperation = 'lighter';
+
+      var rg = ctx.createRadialGradient(x, y, 0, x, y, r);
+
+      rg.addColorStop(0, 'rgba(255,255,255,' + a.toFixed(3) + ')');
+      rg.addColorStop(0.35, pal.starMid + (a * 0.55).toFixed(3) + ')');
+      rg.addColorStop(1, pal.starOut);
+
+      ctx.fillStyle = rg;
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = 'rgba(255,255,255,' + (a * 0.72).toFixed(3) + ')';
+      ctx.lineWidth = Math.max(0.8, r * 0.1);
+
+      ctx.beginPath();
+      ctx.moveTo(x - r * 1.5, y);
+      ctx.lineTo(x + r * 1.5, y);
+      ctx.moveTo(x, y - r * 1.5);
+      ctx.lineTo(x, y + r * 1.5);
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
+    function paintGlitter() {
+      var pal = palette();
+
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.clearRect(0, 0, W, H);
+
+      var g = ctx.createLinearGradient(0, 0, W, H);
+
+      g.addColorStop(0, pal.base[0]);
+      g.addColorStop(0.28, pal.base[1]);
+      g.addColorStop(0.52, pal.base[2]);
+      g.addColorStop(0.76, pal.base[3]);
+      g.addColorStop(1, pal.base[4]);
+
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, W, H);
+
+      var blooms = Math.round(W * H / 26000) + 6;
+
+      for (var i = 0; i < blooms; i++) {
+        var bx = Math.random() * W;
+        var by = Math.random() * H;
+        var br = Math.random() * Math.max(W, H) * 0.3 + Math.min(W, H) * 0.08;
+
+        var rg = ctx.createRadialGradient(bx, by, 0, bx, by, br);
+
+        rg.addColorStop(0, pal.bloom + (0.10 + Math.random() * 0.20).toFixed(3) + ')');
+        rg.addColorStop(1, pal.bloom + '0)');
+
+        ctx.fillStyle = rg;
+        ctx.beginPath();
+        ctx.arc(bx, by, br, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      var specks = Math.round(W * H / 90);
+
+      for (var s = 0; s < specks; s++) {
+        var sx = Math.random() * W;
+        var sy = Math.random() * H;
+        var ss = Math.random() * 1.8 + 0.4;
+        var sa = Math.random() * 0.9 + 0.1;
+
+        ctx.fillStyle =
+          (Math.random() < 0.55 ? pal.dust[0] : pal.dust[1]) +
+          sa.toFixed(3) + ')';
+
+        ctx.fillRect(sx, sy, ss, ss);
+      }
+
+      var stars = Math.round(W * H / 26000) + 8;
+
+      for (var k = 0; k < stars; k++) {
+        drawStar(
+          Math.random() * W,
+          Math.random() * H,
+          Math.random() * Math.min(W, H) * 0.03 + 4,
+          0.25 + Math.random() * 0.55,
+          pal
+        );
+      }
+    }
+
+    function layout() {
+      if (revealed) return;
+
+      var rect = card.getBoundingClientRect();
+      var w = Math.round(rect.width);
+      var h = Math.round(rect.height);
+
+      if (w < 4 || h < 4) return;
+      if (w === W && h === H && canvas.width) return;
+
+      W = w;
+      H = h;
+
+      canvas.width = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+
+      brush = Math.max(16, Math.min(W, H) * 0.12);
+
+      TW = 80;
+      TH = Math.max(16, Math.round(TW * H / W));
+
+      tracker.width = TW;
+      tracker.height = TH;
+
+      tctx.setTransform(1, 0, 0, 1, 0, 0);
+      tctx.globalCompositeOperation = 'source-over';
+      tctx.fillStyle = '#000';
+      tctx.fillRect(0, 0, TW, TH);
+
+      paintGlitter();
+
+      if (hint) hint.style.opacity = '';
+    }
+
+    function punch(x, y) {
+      ctx.globalCompositeOperation = 'destination-out';
+
+      var rg = ctx.createRadialGradient(x, y, 0, x, y, brush);
+
+      rg.addColorStop(0, 'rgba(0,0,0,1)');
+      rg.addColorStop(0.6, 'rgba(0,0,0,0.92)');
+      rg.addColorStop(1, 'rgba(0,0,0,0)');
+
+      ctx.fillStyle = rg;
+      ctx.beginPath();
+      ctx.arc(x, y, brush, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.globalCompositeOperation = 'source-over';
+
+      tctx.fillStyle = '#fff';
+      tctx.beginPath();
+      tctx.arc(x / W * TW, y / H * TH, brush / W * TW, 0, Math.PI * 2);
+      tctx.fill();
+    }
+
+    function scratchTo(x, y) {
+      var dx = x - lastX;
+      var dy = y - lastY;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      var step = Math.max(1, brush * 0.35);
+      var n = Math.max(1, Math.round(dist / step));
+
+      for (var i = 1; i <= n; i++) {
+        punch(lastX + dx * (i / n), lastY + dy * (i / n));
+      }
+
+      lastX = x;
+      lastY = y;
+    }
+
+    function progress() {
+      var data;
+
+      try {
+        data = tctx.getImageData(0, 0, TW, TH).data;
+      } catch (e) {
+        return 1;
+      }
+
+      var hit = 0;
+      var total = TW * TH;
+
+      for (var i = 0; i < data.length; i += 4) {
+        if (data[i] > 120) hit++;
+      }
+
+      return hit / total;
+    }
+
+    function point(e) {
+      var r = canvas.getBoundingClientRect();
+
+      return {
+        x: e.clientX - r.left,
+        y: e.clientY - r.top
+      };
+    }
+
+    function unlock() {
+      if (unlocked) return;
+      unlocked = true;
+
+      try {
+        video.muted = true;
+
+        var p = video.play();
+
+        if (p && typeof p.then === 'function') {
+          p.then(function () {
+            if (!revealed) {
+              try { video.pause(); } catch (e) {}
+            }
+          }).catch(function () {});
+        } else {
+          try { video.pause(); } catch (e) {}
+        }
+
+      } catch (e) {}
+    }
+
+    function reveal() {
+      if (revealed) return;
+
+      revealed = true;
+      drawing = false;
+
+      card.classList.add('is-revealed');
+
+      if (hint) hint.style.opacity = '0';
+
+      canvas.setAttribute('tabindex', '-1');
+
+      playExclusive(video);
+
+      window.setTimeout(function () {
+        canvas.style.display = 'none';
+      }, 1100);
+    }
+
+    function update() {
+      if (revealed) return;
+
+      var p = progress();
+
+      if (hint) {
+        hint.style.opacity = String(Math.max(0, 1 - p / 0.22));
+      }
+
+      if (p >= REVEAL_AT) reveal();
+    }
+
+    function onDown(e) {
+      if (revealed) return;
+
+      unlock();
+
+      drawing = true;
+
+      var p = point(e);
+
+      lastX = p.x;
+      lastY = p.y;
+
+      punch(p.x, p.y);
+
+      try {
+        canvas.setPointerCapture(e.pointerId);
+      } catch (err) {}
+
+      e.preventDefault();
+    }
+
+    function onMove(e) {
+      if (!drawing || revealed) return;
+
+      var p = point(e);
+
+      scratchTo(p.x, p.y);
+
+      var now = Date.now();
+
+      if (now - lastCheck > 130) {
+        lastCheck = now;
+        update();
+      }
+    }
+
+    function onUp() {
+      if (!drawing) return;
+
+      drawing = false;
+      update();
+    }
+
+    canvas.addEventListener('pointerdown', onDown);
+    canvas.addEventListener('pointermove', onMove);
+    canvas.addEventListener('pointerup', onUp);
+    canvas.addEventListener('pointercancel', onUp);
+
+    window.addEventListener('pointerup', onUp);
+
+    canvas.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        reveal();
+      }
+    });
+
+    if (replay) {
+      replay.addEventListener('click', function (e) {
+        e.stopPropagation();
+
+        try { video.currentTime = 0; } catch (err) {}
+
+        card.classList.remove('is-ended');
+        playExclusive(video);
+      });
+    }
+
+    video.addEventListener('ended', function () {
+      if (revealed) card.classList.add('is-ended');
+    });
+
+    video.addEventListener('play', function () {
+      card.classList.remove('is-ended');
+    });
+
+    layout();
+
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(function () {
+        layout();
+      }).observe(card);
+    } else {
+      window.addEventListener('resize', layout);
+    }
+
+    window.addEventListener('orientationchange', function () {
+      window.setTimeout(layout, 260);
+    });
+
+    if ('IntersectionObserver' in window) {
+      var vio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+
+          vio.unobserve(card);
+
+          try {
+            video.preload = 'auto';
+            video.load();
+          } catch (err) {}
+        });
+      }, { rootMargin: '300px 0px' });
+
+      vio.observe(card);
+    }
+  }
+
+
+  /* =========================================================
+     TAP CARD — SANGEET
+     ========================================================= */
+  function setupTap(card) {
+    var video  = card.querySelector('.scratch-video');
+    var cover  = card.querySelector('.tap-cover');
+    var dhol   = card.querySelector('.dhol-img');
+    var hint   = card.querySelector('.scratch-hint');
+    var replay = card.querySelector('.scratch-replay');
+
+    if (!video || !cover) return;
+
+    allVideos.push(video);
+
+    var tapsNeeded = parseInt(card.getAttribute('data-tap'), 10);
+
+    if (isNaN(tapsNeeded) || tapsNeeded < 1) {
+      tapsNeeded = 3;
+    }
+
+    var taps = 0;
+    var revealed = false;
+    var unlocked = false;
+
+    function unlock() {
+      if (unlocked) return;
+
+      unlocked = true;
+
+      try {
+        video.muted = true;
+
+        var p = video.play();
+
+        if (p && typeof p.then === 'function') {
+          p.then(function () {
+            if (!revealed) {
+              try { video.pause(); } catch (e) {}
+            }
+          }).catch(function () {});
+        } else {
+          try { video.pause(); } catch (e) {}
+        }
+
+      } catch (e) {}
+    }
+
+    function updateHint() {
+      if (!hint) return;
+
+      var left = tapsNeeded - taps;
+
+      if (left > 0) {
+        hint.innerHTML =
+          '<span>Tap the dhol ' + left + ' time' +
+          (left === 1 ? '' : 's') + '</span>';
+      }
+    }
+
+    function pulseDhol() {
+      if (!dhol) return;
+
+      dhol.classList.remove('is-struck');
+
+      void dhol.offsetWidth;
+
+      dhol.classList.add('is-struck');
+    }
+
+    function reveal() {
+      if (revealed) return;
+
+      revealed = true;
+
+      card.classList.add('is-revealed');
+
+      if (hint) hint.style.opacity = '0';
+
+      cover.setAttribute('tabindex', '-1');
+      cover.setAttribute('aria-hidden', 'true');
+
+      playExclusive(video);
+    }
+
+    function tap() {
+      if (revealed) return;
+
+      unlock();
+
+      taps++;
+      pulseDhol();
+      updateHint();
+
+      if (taps >= tapsNeeded) reveal();
+    }
+
+    cover.addEventListener('click', tap);
+
+    cover.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        tap();
+      }
+    });
+
+    if (replay) {
+      replay.addEventListener('click', function (e) {
+        e.stopPropagation();
+
+        try { video.currentTime = 0; } catch (err) {}
+
+        card.classList.remove('is-ended');
+        playExclusive(video);
+      });
+    }
+
+    video.addEventListener('ended', function () {
+      if (revealed) card.classList.add('is-ended');
+    });
+
+    video.addEventListener('play', function () {
+      card.classList.remove('is-ended');
+    });
+
+    if ('IntersectionObserver' in window) {
+      var vio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+
+          vio.unobserve(card);
+
+          try {
+            video.preload = 'auto';
+            video.load();
+          } catch (err) {}
+        });
+      }, { rootMargin: '300px 0px' });
+
+      vio.observe(card);
+    }
+  }
+
+
+
+function setupButterfly(card) {
+
+  var video   = card.querySelector('.scratch-video');
+  var cover   = card.querySelector('.butterfly-cover');
+  var central = card.querySelector('.central-butterfly');
+  var hint    = card.querySelector('.scratch-hint');
+  var replay  = card.querySelector('.scratch-replay');
+
+  if (!video || !cover) return;
+
+  allVideos.push(video);
+
+  var revealed = false;
+  var unlocked = false;
+  var busy = false;
+  var finalPlaybackStarted = false;
+  var paperSvg = null;
+  var eraserGroup = null;
+
+  var maskId = 'reception-watercolor-mask-' +
+    Math.random().toString(36).slice(2,10);
+
+  var SVG_NS = 'http://www.w3.org/2000/svg';
+
+  /* ----------------------------------------------------------
+     WATERCOLOR COLOUR PALETTES
+     ---------------------------------------------------------- */
+
+  var watercolorPalettes = [
+    {
+      a:'#9fc8e8', b:'#c8b8e7', c:'#edbfd1',
+      edge:'#8da4c5', body:'#786b83', spot:'#fffaf7'
+    },
+    {
+      a:'#b7c9eb', b:'#d9b8e4', c:'#f1c6c8',
+      edge:'#9b91c2', body:'#746a83', spot:'#fff9f2'
+    },
+    {
+      a:'#f0c3cd', b:'#e9bfdc', c:'#a9cfe5',
+      edge:'#b68aaa', body:'#806c7c', spot:'#fffaf5'
+    },
+    {
+      a:'#a9d1d0', b:'#c4c3e7', c:'#f1d0b7',
+      edge:'#8ba9ad', body:'#6f777d', spot:'#fffaf0'
+    },
+    {
+      a:'#b2c8e7', b:'#e8c3d4', c:'#f3d2a9',
+      edge:'#a393b9', body:'#766b7c', spot:'#fffaf4'
+    }
+  ];
+
+  function svgNode(name, attrs) {
+    var node = document.createElementNS(SVG_NS,name);
+
+    if (attrs) {
+      Object.keys(attrs).forEach(function(key) {
+        node.setAttribute(key,attrs[key]);
+      });
+    }
+
+    return node;
+  }
+
+  /* ----------------------------------------------------------
+     WATERCOLOR BUTTERFLY SVG
+     ---------------------------------------------------------- */
+
+  function watercolorButterflySVG(uid,paletteIndex,shapeIndex) {
+
+    var id = String(uid).replace(/[^a-zA-Z0-9_-]/g,'');
+    var p = watercolorPalettes[
+      paletteIndex % watercolorPalettes.length
+    ];
+
+    var shapes = [
+
+      {
+        leftTop:
+          'M60 57 C49 35 27 11 13 21 C0 30 10 55 34 66 C47 72 55 66 60 57Z',
+        rightTop:
+          'M60 57 C71 35 93 11 107 21 C120 30 110 55 86 66 C73 72 65 66 60 57Z',
+        leftBottom:
+          'M58 61 C44 64 23 78 29 95 C35 110 52 103 60 72Z',
+        rightBottom:
+          'M62 61 C76 64 97 78 91 95 C85 110 68 103 60 72Z'
+      },
+
+      {
+        leftTop:
+          'M60 58 C47 34 29 8 14 18 C2 26 8 52 31 66 C44 74 54 67 60 58Z',
+        rightTop:
+          'M60 58 C73 34 91 8 106 18 C118 26 112 52 89 66 C76 74 66 67 60 58Z',
+        leftBottom:
+          'M58 62 C42 65 19 80 28 98 C36 112 51 101 60 72Z',
+        rightBottom:
+          'M62 62 C78 65 101 80 92 98 C84 112 69 101 60 72Z'
+      },
+
+      {
+        leftTop:
+          'M60 58 C51 39 30 15 15 22 C0 30 12 57 35 68 C47 74 55 67 60 58Z',
+        rightTop:
+          'M60 58 C69 39 90 15 105 22 C120 30 108 57 85 68 C73 74 65 67 60 58Z',
+        leftBottom:
+          'M58 62 C45 67 27 77 29 91 C32 108 50 106 60 73Z',
+        rightBottom:
+          'M62 62 C75 67 93 77 91 91 C88 108 70 106 60 73Z'
+      }
+
+    ];
+
+    var shape = shapes[shapeIndex % shapes.length];
+
+    return `
+    <svg class="watercolor-butterfly-svg"
+         viewBox="0 0 120 120"
+         xmlns="http://www.w3.org/2000/svg"
+         aria-hidden="true">
+
+      <defs>
+
+        <linearGradient id="${id}-fore"
+                        x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="${p.a}" stop-opacity=".96"/>
+          <stop offset=".43" stop-color="${p.b}" stop-opacity=".88"/>
+          <stop offset=".78" stop-color="${p.c}" stop-opacity=".91"/>
+          <stop offset="1" stop-color="${p.a}" stop-opacity=".72"/>
+        </linearGradient>
+
+        <linearGradient id="${id}-hind"
+                        x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="${p.b}" stop-opacity=".9"/>
+          <stop offset=".58" stop-color="${p.c}" stop-opacity=".88"/>
+          <stop offset="1" stop-color="${p.a}" stop-opacity=".78"/>
+        </linearGradient>
+
+        <radialGradient id="${id}-wash"
+                        cx="38%" cy="32%" r="76%">
+          <stop offset="0" stop-color="#fffdf8" stop-opacity=".82"/>
+          <stop offset=".52" stop-color="${p.c}" stop-opacity=".2"/>
+          <stop offset="1" stop-color="${p.a}" stop-opacity=".05"/>
+        </radialGradient>
+
+        <filter id="${id}-grain"
+                x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency=".038"
+            numOctaves="2"
+            seed="${shapeIndex + 7}"
+            result="pigment"/>
+
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="pigment"
+            scale="1.8"
+            xChannelSelector="R"
+            yChannelSelector="G"/>
+        </filter>
+
+      </defs>
+
+      <g filter="url(#${id}-grain)">
+
+        <!-- LEFT WINGS -->
+        <g class="wing wing-left">
+
+          <path d="${shape.leftTop}"
+                fill="url(#${id}-fore)"
+                stroke="${p.edge}"
+                stroke-opacity=".55"
+                stroke-width="1.05"/>
+
+          <path d="${shape.leftBottom}"
+                fill="url(#${id}-hind)"
+                stroke="${p.edge}"
+                stroke-opacity=".48"
+                stroke-width="1"/>
+
+          <path
+            d="M59 57 Q41 39 16 25
+               M57 59 Q34 52 12 43
+               M56 61 Q39 66 29 63
+               M58 65 Q42 78 32 96
+               M59 66 Q50 84 47 101"
+            fill="none"
+            stroke="${p.edge}"
+            stroke-opacity=".47"
+            stroke-width=".8"
+            stroke-linecap="round"/>
+
+          <path
+            d="M43 35 Q31 28 23 30
+               M38 48 Q26 43 18 45"
+            fill="none"
+            stroke="#fffaf7"
+            stroke-opacity=".55"
+            stroke-width="1.1"
+            stroke-linecap="round"/>
+
+        </g>
+
+        <!-- RIGHT WINGS -->
+        <g class="wing wing-right">
+
+          <path d="${shape.rightTop}"
+                fill="url(#${id}-fore)"
+                stroke="${p.edge}"
+                stroke-opacity=".55"
+                stroke-width="1.05"/>
+
+          <path d="${shape.rightBottom}"
+                fill="url(#${id}-hind)"
+                stroke="${p.edge}"
+                stroke-opacity=".48"
+                stroke-width="1"/>
+
+          <path
+            d="M61 57 Q79 39 104 25
+               M63 59 Q86 52 108 43
+               M64 61 Q81 66 91 63
+               M62 65 Q78 78 88 96
+               M61 66 Q70 84 73 101"
+            fill="none"
+            stroke="${p.edge}"
+            stroke-opacity=".47"
+            stroke-width=".8"
+            stroke-linecap="round"/>
+
+          <path
+            d="M77 35 Q89 28 97 30
+               M82 48 Q94 43 102 45"
+            fill="none"
+            stroke="#fffaf7"
+            stroke-opacity=".55"
+            stroke-width="1.1"
+            stroke-linecap="round"/>
+
+        </g>
+
+        <!-- Translucent watercolor pools -->
+        <g fill="url(#${id}-wash)" opacity=".72">
+          <path d="M60 56 C44 34 23 21 15 29 C9 37 20 56 40 63 C49 66 56 62 60 56Z"/>
+          <path d="M60 56 C76 34 97 21 105 29 C111 37 100 56 80 63 C71 66 64 62 60 56Z"/>
+        </g>
+
+        <!-- White paint details -->
+        <g fill="${p.spot}" opacity=".82">
+          <circle cx="22" cy="31" r="1.8"/>
+          <circle cx="34" cy="43" r="1.2"/>
+          <circle cx="44" cy="30" r=".9"/>
+          <circle cx="98" cy="31" r="1.8"/>
+          <circle cx="86" cy="43" r="1.2"/>
+          <circle cx="76" cy="30" r=".9"/>
+          <circle cx="38" cy="83" r="1.25"/>
+          <circle cx="82" cy="83" r="1.25"/>
+          <circle cx="48" cy="94" r=".9"/>
+          <circle cx="72" cy="94" r=".9"/>
+        </g>
+
+        <g fill="${p.b}" opacity=".34">
+          <circle cx="17" cy="55" r="2.4"/>
+          <circle cx="103" cy="55" r="2.4"/>
+          <circle cx="32" cy="101" r="1.7"/>
+          <circle cx="88" cy="101" r="1.7"/>
+        </g>
+
+      </g>
+
+      <!-- Body and antennae -->
+      <path
+        d="M60 43 C57 34 53 28 48 24
+           M60 43 C63 34 67 28 72 24"
+        fill="none"
+        stroke="${p.body}"
+        stroke-width="1.25"
+        stroke-linecap="round"/>
+
+      <ellipse cx="60" cy="60" rx="2.05" ry="17"
+               fill="${p.body}" opacity=".9"/>
+
+      <circle cx="60" cy="43" r="2.6" fill="${p.body}"/>
+
+    </svg>`;
+  }
+
+  /* ----------------------------------------------------------
+     PAPER LAYER + SVG MASK
+     ---------------------------------------------------------- */
+
+  function createPaperSurface(width,height) {
+
+    if (paperSvg && paperSvg.parentNode) {
+      paperSvg.parentNode.removeChild(paperSvg);
+    }
+
+    paperSvg = svgNode('svg',{
+      'class':'butterfly-paper-svg',
+      'viewBox':'0 0 '+width+' '+height,
+      'preserveAspectRatio':'none',
+      'aria-hidden':'true'
+    });
+
+    var defs = svgNode('defs');
+
+    var gradient = svgNode('linearGradient',{
+      id:maskId+'-paper',
+      x1:'0',y1:'0',x2:'1',y2:'1'
+    });
+
+    [
+      ['0%','#fffdf9'],
+      ['34%','#fff5f0'],
+      ['68%','#f7e8ed'],
+      ['100%','#e9e4f0']
+    ].forEach(function(stopInfo){
+      gradient.appendChild(svgNode('stop',{
+        offset:stopInfo[0],
+        'stop-color':stopInfo[1]
+      }));
+    });
+
+    var bloom = svgNode('radialGradient',{
+      id:maskId+'-bloom',
+      cx:'50%',cy:'50%',r:'50%'
+    });
+
+    bloom.appendChild(svgNode('stop',{
+      offset:'0%',
+      'stop-color':'#c4d8ec',
+      'stop-opacity':'.42'
+    }));
+
+    bloom.appendChild(svgNode('stop',{
+      offset:'100%',
+      'stop-color':'#c4d8ec',
+      'stop-opacity':'0'
+    }));
+
+    var mask = svgNode('mask',{
+      id:maskId,
+      maskUnits:'userSpaceOnUse',
+      x:'0',y:'0',
+      width:String(width),
+      height:String(height),
+      'mask-type':'luminance'
+    });
+
+    mask.appendChild(svgNode('rect',{
+      x:'0',y:'0',
+      width:String(width),
+      height:String(height),
+      fill:'#fff'
+    }));
+
+    eraserGroup = svgNode('g',{
+      'class':'butterfly-eraser-trails'
+    });
+
+    mask.appendChild(eraserGroup);
+
+    defs.appendChild(gradient);
+    defs.appendChild(bloom);
+    defs.appendChild(mask);
+
+    paperSvg.appendChild(defs);
+
+    var paperGroup = svgNode('g',{
+      mask:'url(#'+maskId+')'
+    });
+
+    paperGroup.appendChild(svgNode('rect',{
+      x:'0',y:'0',
+      width:String(width),
+      height:String(height),
+      fill:'url(#'+maskId+'-paper)'
+    }));
+
+    paperGroup.appendChild(svgNode('ellipse',{
+      cx:String(width*.17),
+      cy:String(height*.22),
+      rx:String(width*.34),
+      ry:String(height*.18),
+      fill:'url(#'+maskId+'-bloom)',
+      opacity:'.72'
+    }));
+
+    paperGroup.appendChild(svgNode('ellipse',{
+      cx:String(width*.84),
+      cy:String(height*.72),
+      rx:String(width*.36),
+      ry:String(height*.22),
+      fill:'url(#'+maskId+'-bloom)',
+      opacity:'.6'
+    }));
+
+    paperGroup.appendChild(svgNode('ellipse',{
+      cx:String(width*.52),
+      cy:String(height*.43),
+      rx:String(width*.38),
+      ry:String(height*.26),
+      fill:'#fffdf9',
+      opacity:'.25'
+    }));
+
+    paperSvg.appendChild(paperGroup);
+    cover.insertBefore(paperSvg,cover.firstChild);
+  }
+
+  /* Main resting butterfly */
+  if (central) {
+    central.style.setProperty('--flap-duration','.37s');
+
+    central.innerHTML = watercolorButterflySVG(
+      'reception-main-butterfly-'+maskId,
+      0,
+      1
+    );
+  }
+
+  function initializePaperSurface() {
+    var rect = card.getBoundingClientRect();
+
+    var width = Math.round(rect.width || card.clientWidth || 300);
+    var height = Math.round(rect.height || card.clientHeight || 520);
+
+    if (width > 0 && height > 0) {
+      createPaperSurface(width,height);
+    }
+  }
+
+  initializePaperSurface();
+
+  if ('ResizeObserver' in window) {
+    var paperResizeObserver = new ResizeObserver(function() {
+      if (!revealed && !busy) initializePaperSurface();
+    });
+
+    paperResizeObserver.observe(card);
+  } else {
+    window.addEventListener('resize',function(){
+      if (!revealed && !busy) initializePaperSurface();
+    });
+  }
+
+  /* ----------------------------------------------------------
+     VIDEO UNLOCK
+     ---------------------------------------------------------- */
+
+  function unlock() {
+    if (unlocked) return;
+    unlocked = true;
+
+    try {
+      video.muted = true;
+
+      var p = video.play();
+
+      if (p && typeof p.then === 'function') {
+        p.then(function(){
+          if (!finalPlaybackStarted) {
+            try {
+              video.pause();
+              video.currentTime = 0;
+            } catch(e){}
+          }
+        }).catch(function(){});
+      } else if (!finalPlaybackStarted) {
+        try { video.pause(); } catch(e){}
+      }
+
+    } catch(e){}
+  }
+
+  function startReceptionVideo() {
+    finalPlaybackStarted = true;
+    playExclusive(video);
+  }
+
+  /* ----------------------------------------------------------
+     SOFT WATERCOLOUR ERASER TRAILS
+     ---------------------------------------------------------- */
+
+  function createEraseTrail(eraser,size) {
+
+    var feather = svgNode('path',{
+      fill:'none',
+      stroke:'#000',
+      'stroke-linecap':'round',
+      'stroke-linejoin':'round',
+      'stroke-width':String(size*2.65),
+      'stroke-opacity':'.20'
+    });
+
+    var soft = svgNode('path',{
+      fill:'none',
+      stroke:'#000',
+      'stroke-linecap':'round',
+      'stroke-linejoin':'round',
+      'stroke-width':String(size*1.78),
+      'stroke-opacity':'.48'
+    });
+
+    var core = svgNode('path',{
+      fill:'none',
+      stroke:'#000',
+      'stroke-linecap':'round',
+      'stroke-linejoin':'round',
+      'stroke-width':String(size*1.03),
+      'stroke-opacity':'1'
+    });
+
+    eraser.appendChild(feather);
+    eraser.appendChild(soft);
+    eraser.appendChild(core);
+
+    return {
+      feather:feather,
+      soft:soft,
+      core:core
+    };
+  }
+
+  /* ----------------------------------------------------------
+     CREATE THE BUTTERFLY FLOCK
+     ---------------------------------------------------------- */
+
+  function spawnButterflies() {
+
+    var rect = card.getBoundingClientRect();
+
+    var width = rect.width || card.clientWidth || 300;
+    var height = rect.height || card.clientHeight || 520;
+
+    createPaperSurface(width,height);
+
+    var reducedMotion = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var laneCount = 11;
+    var waves = 3;
+    var count = laneCount * waves;
+
+    var butterflies = [];
+    var nowBase = performance.now();
+
+    for (var i=0;i<count;i++) {
+
+      var lane = i % laneCount;
+      var wave = Math.floor(i/laneCount);
+
+      var size = 15 + ((i*11)%29) + Math.random()*5;
+
+      if (reducedMotion) size *= .9;
+
+      var direction = ((lane+wave)%2===0) ? 1 : -1;
+
+      var laneY = ((lane+.5)/laneCount)*height;
+      var waveOffset = (wave-1)*14;
+
+      var baseY = Math.max(
+        8,
+        Math.min(
+          height-size-8,
+          laneY+waveOffset+(Math.random()*18-9)
+        )
+      );
+
+      var startX = direction>0 ? -size-12 : width+12;
+      var endX = direction>0 ? width+size+12 : -size-12;
+
+      var duration = reducedMotion
+        ? 950+Math.random()*160
+        : 2050+Math.random()*1000;
+
+      var delay = reducedMotion
+        ? wave*55
+        : wave*155+Math.random()*150;
+
+      var amplitude = 10+Math.random()*24;
+      var drift = Math.random()*50-25;
+      var cycles = 1.15+Math.random()*1.55;
+      var phase = Math.random()*Math.PI*2;
+      var secondaryPhase = Math.random()*Math.PI*2;
+      var rotationAmount = 5+Math.random()*13;
+
+      var flapDuration =
+        .215+(size/55)*.17+Math.random()*.035;
+
+      var insect = document.createElement('span');
+
+      insect.className = 'flying-butterfly';
+      insect.setAttribute('aria-hidden','true');
+
+      insect.style.width = size+'px';
+      insect.style.height = size+'px';
+      insect.style.left = '0px';
+      insect.style.top = '0px';
+
+      insect.style.setProperty(
+        '--flap-duration',
+        flapDuration.toFixed(3)+'s'
+      );
+
+      var paletteIndex =
+        (i+Math.floor(Math.random()*3)) %
+        watercolorPalettes.length;
+
+      var shapeIndex =
+        (i+Math.floor(Math.random()*3))%3;
+
+      insect.innerHTML = watercolorButterflySVG(
+        'reception-flier-'+i+'-'+maskId,
+        paletteIndex,
+        shapeIndex
+      );
+
+      cover.appendChild(insect);
+
+      var trail = createEraseTrail(
+        eraserGroup,
+        Math.max(18,size*1.55)
+      );
+
+      butterflies.push({
+        node:insect,
+        trail:trail,
+        size:size,
+        direction:direction,
+        startX:startX,
+        endX:endX,
+        baseY:baseY,
+        duration:duration,
+        startAt:nowBase+delay,
+        amplitude:amplitude,
+        drift:drift,
+        cycles:cycles,
+        phase:phase,
+        secondaryPhase:secondaryPhase,
+        rotationAmount:rotationAmount,
+        lastX:null,
+        lastY:null,
+        path:'',
+        done:false
+      });
+    }
+
+    return {
+      butterflies:butterflies
+    };
+  }
+
+  /* ----------------------------------------------------------
+     UPDATE EACH BUTTERFLY'S TRANSPARENT TRAIL
+     ---------------------------------------------------------- */
+
+  function updateTrail(flight,x,y) {
+
+    if (flight.lastX===null) {
+      flight.path =
+        'M'+x.toFixed(1)+' '+y.toFixed(1);
+    } else {
+      var dx=x-flight.lastX;
+      var dy=y-flight.lastY;
+
+      if ((dx*dx+dy*dy)<20) return;
+
+      flight.path +=
+        ' L'+x.toFixed(1)+' '+y.toFixed(1);
+    }
+
+    flight.lastX=x;
+    flight.lastY=y;
+
+    flight.trail.feather.setAttribute('d',flight.path);
+    flight.trail.soft.setAttribute('d',flight.path);
+    flight.trail.core.setAttribute('d',flight.path);
+  }
+
+  /* ----------------------------------------------------------
+     NATURAL BUTTERFLY FLIGHT
+     ---------------------------------------------------------- */
+
+  function animateFlock(flock,onComplete) {
+
+    var flights=flock.butterflies;
+    var finishedCount=0;
+
+    function frame(now) {
+
+      var activeCount=0;
+
+      flights.forEach(function(f){
+
+        if (f.done) return;
+
+        if (now<f.startAt) {
+          activeCount++;
+          return;
+        }
+
+        var t=Math.min(
+          1,
+          (now-f.startAt)/f.duration
+        );
+
+        var speedPhase =
+          Math.sin(t*Math.PI*4+f.phase)-
+          Math.sin(f.phase);
+
+        var travelProgress=t+speedPhase*.018;
+
+        travelProgress=Math.max(
+          0,
+          Math.min(1,travelProgress)
+        );
+
+        var x=f.startX+
+          (f.endX-f.startX)*travelProgress;
+
+        var wave =
+          Math.sin(t*Math.PI*2*f.cycles+f.phase)-
+          Math.sin(f.phase);
+
+        var smallWave =
+          Math.sin(t*Math.PI*4+f.secondaryPhase)*4.2;
+
+        var y =
+          f.baseY+
+          f.drift*t+
+          f.amplitude*wave+
+          smallWave;
+
+        var derivative =
+          Math.cos(t*Math.PI*2*f.cycles+f.phase)*
+          f.amplitude*f.cycles*Math.PI*2;
+
+        var slope =
+          (f.drift+derivative)/
+          Math.max(1,(f.endX-f.startX));
+
+        var bank =
+          Math.max(-18,Math.min(18,slope*95))+
+          Math.sin(t*Math.PI*4+f.secondaryPhase)*
+          f.rotationAmount;
+
+        var fadeIn=Math.min(1,t*9);
+        var fadeOut=Math.min(1,(1-t)*8);
+        var opacity=Math.min(fadeIn,fadeOut);
+
+        var bodyScale =
+          .91+Math.sin(t*Math.PI*2+f.phase)*.055;
+
+        f.node.style.opacity=String(opacity);
+
+        f.node.style.transform =
+          'translate3d('+x.toFixed(2)+'px,'+
+          y.toFixed(2)+'px,0) '+
+          'rotate('+bank.toFixed(2)+'deg) '+
+          'scale('+bodyScale.toFixed(3)+')';
+
+        updateTrail(
+          f,
+          x+f.size/2,
+          y+f.size/2
+        );
+
+        if (t>=1) {
+          f.done=true;
+          finishedCount++;
+
+          if (f.node.parentNode) {
+            f.node.parentNode.removeChild(f.node);
+          }
+        } else {
+          activeCount++;
+        }
+
+      });
+
+      if (
+        finishedCount>=flights.length ||
+        activeCount===0
+      ) {
+        if (onComplete) onComplete();
+        return;
+      }
+
+      window.requestAnimationFrame(frame);
+    }
+
+    window.requestAnimationFrame(frame);
+  }
+
+  /* ----------------------------------------------------------
+     RECEPTION REVEAL SEQUENCE
+     ---------------------------------------------------------- */
+
+  function reveal() {
+
+    if (revealed) return;
+
+    revealed=true;
+    busy=true;
+
+    card.classList.add('is-fluttering');
+
+    cover.setAttribute('tabindex','-1');
+    cover.setAttribute('aria-hidden','true');
+
+    if (hint) hint.style.opacity='0';
+
+    var flock=spawnButterflies();
+
+    animateFlock(flock,function(){
+
+      window.setTimeout(function(){
+
+        card.classList.add('is-revealed');
+
+        window.setTimeout(function(){
+          startReceptionVideo();
+        },620);
+
+      },100);
+    });
+  }
+
+  function tap() {
+    if (revealed || busy) return;
+
+    busy=true;
+    unlock();
+    reveal();
+  }
+
+  cover.addEventListener('click',tap);
+
+  cover.addEventListener('keydown',function(e){
+
+    if (
+      e.key==='Enter' ||
+      e.key===' ' ||
+      e.key==='Spacebar'
+    ) {
+      e.preventDefault();
+      tap();
+    }
+  });
+
+  if (replay) {
+
+    replay.addEventListener('click',function(e){
+
+      e.stopPropagation();
+
+      try {
+        video.currentTime=0;
+      } catch(err){}
+
+      card.classList.remove('is-ended');
+      startReceptionVideo();
+    });
+  }
+
+  video.addEventListener('ended',function(){
+
+    if (revealed) {
+      card.classList.add('is-ended');
+    }
+  });
+
+  video.addEventListener('play',function(){
+    card.classList.remove('is-ended');
+  });
+
+  if ('IntersectionObserver' in window) {
+
+    var vio=new IntersectionObserver(function(entries){
+
+      entries.forEach(function(entry){
+
+        if (!entry.isIntersecting) return;
+
+        vio.unobserve(card);
+
+        try {
+          video.preload='auto';
+          video.load();
+        } catch(err){}
+
+      });
+
+    },{rootMargin:'300px 0px'});
+
+    vio.observe(card);
+  }
+
+}
+
+})();
+
+
+/* ============================================================
+   COUNTDOWN
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var target = new Date('2026-12-03T21:06:00+05:30').getTime();
+
+  var dEl = document.getElementById('cdDays');
+  var hEl = document.getElementById('cdHours');
+  var mEl = document.getElementById('cdMins');
+  var sEl = document.getElementById('cdSecs');
+
+  if (!dEl || !hEl || !mEl || !sEl) return;
+
+  function pad(n) {
+    return n < 10 ? '0' + n : '' + n;
+  }
+
+  function tick() {
+    var now = Date.now();
+    var diff = target - now;
+
+    if (diff < 0) diff = 0;
+
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+
+    dEl.textContent = pad(d);
+    hEl.textContent = pad(h);
+    mEl.textContent = pad(m);
+    sEl.textContent = pad(s);
+  }
+
+  tick();
+  window.setInterval(tick, 1000);
+})();
+</script>
+
+</body>
+</html>
